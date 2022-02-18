@@ -303,10 +303,40 @@ for stream in spark.streams.active:
 
 # COMMAND ----------
 
+# test-addcol.py
 
+from dbxdemo.spark import get_spark
+from dbxdemo.appendcol import with_status
+
+
+source_data = [
+    ("pete", "pan", "peter.pan@databricks.com"),
+    ("jason", "argonaut", "jason.argonaut@databricks.com")
+]
+source_df = get_spark().createDataFrame(
+    source_data,
+    ["first_name", "last_name", "email"]
+)
+
+actual_df = with_status(source_df)
+
+expected_data = [
+    ("pete", "pan", "peter.pan@databricks.com", "checked"),
+    ("jason", "argonaut", "jason.argonaut@databricks.com", "checked")
+]
+expected_df = get_spark().createDataFrame(
+    expected_data,
+    ["first_name", "last_name", "email", "status"]
+)
+
+assert(expected_df.collect() == actual_df.collect())
+
+        
+    
 
 # COMMAND ----------
 
+# MAGIC 
 # MAGIC %md-sandbox
 # MAGIC &copy; 2020 Databricks, Inc. All rights reserved.<br/>
 # MAGIC Apache, Apache Spark, Spark and the Spark logo are trademarks of the <a href="http://www.apache.org/">Apache Software Foundation</a>.<br/>
