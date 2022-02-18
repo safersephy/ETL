@@ -4,5 +4,4 @@ from functools import lru_cache
 @lru_cache(maxsize=None)
 def get_spark():
     return (SparkSession.builder
-                .appName("dbxdemo")
-            
+                .appName("dbxdemo"))
