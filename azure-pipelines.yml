@@ -31,8 +31,11 @@ steps:
     $(EXISTING-CLUSTER-ID)
     $(WORKSPACE-ORG-ID)
     15001" | databricks-connect configure
-    databricks-connect test
+
   displayName: 'Configure DBConnect'
+
+- script: databricks-connect test
+  displayName: 'Test DBConnect'
 
 - checkout: self
   persistCredentials: true
