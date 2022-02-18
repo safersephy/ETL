@@ -67,8 +67,9 @@ steps:
     mkdir -p $(Build.BinariesDirectory)/libraries/python/libs
     cp $(Build.Repository.LocalPath)/libraries/python/dbxdemo/dist/*.* $(Build.BinariesDirectory)/libraries/python/libs
 
-    mkdir -p $(Build.BinariesDirectory)/cicd-scripts
-    cp $(Build.Repository.LocalPath)/cicd-scripts/*.* $(Build.BinariesDirectory)/cicd-scripts
+#in case you hace CICD scripts
+#    mkdir -p $(Build.BinariesDirectory)/cicd-scripts
+#    cp $(Build.Repository.LocalPath)/cicd-scripts/*.* $(Build.BinariesDirectory)/cicd-scripts
 
   displayName: 'Get Changes'
 
