@@ -216,29 +216,6 @@ for stream in spark.streams.active:
 
 # COMMAND ----------
 
-# MAGIC %scala
-# MAGIC import org.apache.spark.sql.types.{StructField, StructType, StringType, LongType, DoubleType}
-# MAGIC 
-# MAGIC lazy val schema = StructType(List(
-# MAGIC   StructField("Arrival_Time", LongType),
-# MAGIC   StructField("Creation_Time", LongType),
-# MAGIC   StructField("Device", StringType),
-# MAGIC   StructField("Index", LongType),
-# MAGIC   StructField("Model", StringType),
-# MAGIC   StructField("User", StringType),
-# MAGIC   StructField("gt", StringType),
-# MAGIC   StructField("x", DoubleType),
-# MAGIC   StructField("y", DoubleType),
-# MAGIC   StructField("z", DoubleType),
-# MAGIC   StructField("geolocation", StructType(List(
-# MAGIC     StructField("PostalCode", StringType),
-# MAGIC     StructField("StateProvince", StringType),
-# MAGIC     StructField("city", StringType),
-# MAGIC     StructField("country", StringType)))),
-# MAGIC   StructField("id", StringType)))
-
-# COMMAND ----------
-
 from pyspark.sql.types import StructField, StructType, StringType, LongType, DoubleType
 
 schema = StructType([
