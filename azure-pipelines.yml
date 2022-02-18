@@ -20,7 +20,8 @@ steps:
 
 - script: |
     pip install pytest requests setuptools wheel
-    pip install -U databricks-connect==6.4.*
+    pip uninstall pyspark
+    pip install -U databricks-connect==9.1.*
   displayName: 'Load Python Dependencies'
 
 - script: |
@@ -30,6 +31,7 @@ steps:
     $(EXISTING-CLUSTER-ID)
     $(WORKSPACE-ORG-ID)
     15001" | databricks-connect configure
+    databricks-connect test
   displayName: 'Configure DBConnect'
 
 - checkout: self
