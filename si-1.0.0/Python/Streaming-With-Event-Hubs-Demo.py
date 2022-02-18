@@ -336,6 +336,17 @@ assert(expected_df.collect() == actual_df.collect())
 
 # COMMAND ----------
 
+from pyspark.sql import SparkSession
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def get_spark():
+    return (SparkSession.builder
+                .appName("dbxdemo")
+                .getOrCreate())
+
+# COMMAND ----------
+
 # MAGIC 
 # MAGIC %md-sandbox
 # MAGIC &copy; 2020 Databricks, Inc. All rights reserved.<br/>
