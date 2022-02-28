@@ -1,0 +1,9 @@
+{
+	"name": "TVPlayGroundADF",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b1fcf1a3-13fe-4c4e-b419-61a5783216d5",
+		"tenantId": "1f7c4138-7578-4ed8-b103-49fa33e62aed"
+	}
+}
